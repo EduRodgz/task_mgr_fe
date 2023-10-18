@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit task{% endblock title %}
+
+{% block content %}
+<h1>Edit task</h1>
+<form method="POST" action="{{ url_for('edit_task', pk=task['id']) }}">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Summary</th>
+                <th scope="col">Description</th>
+                <th scope="col">Is Done</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row">1</td>
+                <td><label for="summary">Summary</label></td>
+                <td><input type="text" value="{{ task['summary'] }}" name="summary" id="id_summmary"></td>
+            </tr>
+            <tr>
+                <td scope="row">2</td>
+                <td><label for="description">Description</label></td>
+                <td><input type="text" value="{{ task['description'] }}" name="description" id="id_description"></td>
+            </tr>
+            <tr style="display: none;">
+                <td scope="row">3</td>
+                <td><label for="is_done">Is Done</label></td>
+            <td><input type="text" value="{{ task['is_done'] }}" name="is_done" id="id_is_done"></td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="submit" class="btn btn-success" value="Edit">
+</form>
+{% endblock content %}
